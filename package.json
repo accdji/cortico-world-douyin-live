@@ -1,0 +1,67 @@
+{
+  "name": "cortico-world-douyin-live",
+  "version": "0.1.5",
+  "type": "module",
+  "description": "Cortico World: read-only Douyin live room (room-id ingest like bilibili; optional local bridge), with coalescing, audience admission and a local OBS overlay",
+  "license": "GPL-3.0-or-later",
+  "author": "accdji",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/accdji/cortico-world-douyin-live.git"
+  },
+  "bugs": {
+    "url": "https://github.com/accdji/cortico-world-douyin-live/issues"
+  },
+  "homepage": "https://github.com/accdji/cortico-world-douyin-live#readme",
+  "keywords": [
+    "cortico-world",
+    "cortico",
+    "douyin",
+    "live-streaming",
+    "tiktok"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@11.28.6",
+  "main": "./src/index.ts",
+  "cortico": {
+    "kind": "world",
+    "api": 6,
+    "displayName": "抖音直播间",
+    "icon": "src/icon.svg",
+    "webUiClient": "dist/webui.js",
+    "describe": "describe.json",
+    "tags": [
+      "live-streaming"
+    ]
+  },
+  "files": [
+    "src",
+    "dist",
+    "vendor",
+    "describe.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "build:webui": "node scripts/build-webui.mjs",
+    "mock:bridge": "node scripts/mock-dycast-forward.mjs"
+  },
+  "dependencies": {
+    "protobufjs": "7.6.6",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/ws": "^8.5.13",
+    "cortico": "^0.2.9",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

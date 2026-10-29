@@ -1,0 +1,11 @@
+{"roomId":"7123456789012345678","roomNum":"123456789","uniqueId":"anchor_x","avatar":"https://example.com/a.jpg","cover":"https://example.com/c.jpg","nickname":"测试主播","title":"今晚一起聊天","status":2}
+[{"method":"WebcastChatMessage","id":"1","content":"你好啊","user":{"id":"u1","name":"小明","avatar":""}}]
+[{"method":"WebcastChatMessage","id":"2","content":"你好啊","user":{"id":"u1","name":"小明","avatar":""}}]
+[{"method":"WebcastGiftMessage","id":"3","user":{"id":"u2","name":"土豪"},"gift":{"id":"g1","name":"玫瑰","price":10,"count":1}}]
+[{"method":"WebcastGiftMessage","id":"4","user":{"id":"u2","name":"土豪"},"gift":{"id":"g1","name":"玫瑰","price":10,"count":2}}]
+[{"method":"WebcastMemberMessage","id":"5","user":{"id":"u3","name":"路人"},"room":{"audienceCount":120}}]
+[{"method":"WebcastLikeMessage","id":"6","user":{"id":"u3","name":"路人"},"room":{"likeCount":999}}]
+[{"method":"WebcastSocialMessage","id":"7","user":{"id":"u4","name":"新粉"},"content":"关注了主播"}]
+[{"method":"WebcastFansclubMessage","id":"8","user":{"id":"u2","name":"土豪"},"content":"点亮了粉丝团"}]
+[{"method":"WebcastRoomUserSeqMessage","id":"9","room":{"audienceCount":256,"totalUserCount":1024,"likeCount":5000}}]
+[{"method":"WebcastControlMessage","id":"10","content":"直播结束","room":{"status":4}}]

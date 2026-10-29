@@ -1,0 +1,6 @@
+{"Type":1,"Data":"{\"Content\":\"来了来了\",\"User\":{\"Id\":\"9001\",\"Nickname\":\"抓包用户\"}}"}
+{"Type":5,"Data":"{\"GiftName\":\"小心心\",\"DiamondCount\":1,\"GiftCount\":1,\"User\":{\"Id\":\"9002\",\"Nickname\":\"粉丝A\"}}"}
+{"Type":5,"Gift":{"Name":"嘉年华","DiamondCount":1000,"Count":1},"User":{"Id":"9003","Nickname":"大佬"}}
+{"Type":3,"User":{"Id":"9004","Nickname":"进场客"},"MemberCount":88}
+{"Type":6,"OnlineUserCount":300,"TotalUserCount":2000,"LikeCount":8000}
+{"Type":9,"Content":"下播","Status":4}

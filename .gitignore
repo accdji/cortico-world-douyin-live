@@ -1,0 +1,36 @@
+# dependencies & build
+node_modules/
+dist/*
+!dist/webui.js
+*.tgz
+*.log
+
+# local / private (never publish)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+cookies.txt
+DOUYIN_COOKIE*
+.local/
+tmp/
+temp/
+
+# Coopanion / personal machine paths (if ever copied here)
+**/data-location.json
+**/incidents/
+**/runs/
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# optional local reference trees
+ref/
+
+# lockfile keep; workspace noise
+.pnpm-store/

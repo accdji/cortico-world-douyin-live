@@ -1,0 +1,117 @@
+{
+  "tools": [
+    {
+      "name": "douyin_live_set_announcement",
+      "description": "Rewrite the announcement board text on the local stream overlay. Does not send anything to Douyin.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Announcement text, at most 200 characters. Empty clears the board.",
+            "maxLength": 200
+          }
+        },
+        "required": ["text"]
+      },
+      "tags": ["write"],
+      "summary": {
+        "zh": "改写直播画面叠加层上的公告板文字。",
+        "en": "Rewrites the announcement board text on the stream overlay."
+      }
+    },
+    {
+      "name": "douyin_live_update_video_queue",
+      "description": "Edit the local overlay video queue (max 20 items): add, remove, move or clear. Accepts Douyin video links or ids.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "action": { "type": "string", "enum": ["add", "remove", "move", "clear"] },
+          "id": { "type": "string", "description": "Video id or Douyin link (add/remove/move)." },
+          "note": { "type": "string", "description": "Optional note when adding." },
+          "position": { "type": "integer", "minimum": 1, "description": "1-based position for add/move." }
+        },
+        "required": ["action"]
+      },
+      "tags": ["write"],
+      "summary": {
+        "zh": "改写直播画面上的视频排队列表:加入、移除、调整顺序或清空。",
+        "en": "Edits the video queue list on the stream overlay: add, remove, reorder or clear."
+      }
+    }
+  ],
+  "events": [
+    {
+      "type": "douyin-live.danmaku",
+      "description": {
+        "zh": "观众发的弹幕;短时间内的相同弹幕合成一条。",
+        "en": "A viewer chat message; identical messages within a short window are merged."
+      },
+      "trigger": "debounce"
+    },
+    {
+      "type": "douyin-live.gift",
+      "description": {
+        "zh": "观众送了付费礼物;金额达到配置的门槛时立即投递,否则合批。",
+        "en": "A viewer sent a paid gift; delivered at once when the amount reaches the configured threshold, otherwise batched."
+      }
+    },
+    {
+      "type": "douyin-live.fansclub",
+      "description": {
+        "zh": "粉丝团相关互动。",
+        "en": "A fans-club related interaction."
+      },
+      "trigger": "flush"
+    },
+    {
+      "type": "douyin-live.superchat",
+      "description": {
+        "zh": "付费留言(若桥提供等价物)。",
+        "en": "A paid highlight message when the bridge provides one."
+      },
+      "trigger": "flush"
+    },
+    {
+      "type": "douyin-live.room",
+      "description": {
+        "zh": "开播、下播、标题变更或 World 挂载状态。",
+        "en": "Live/offline, title change, or World mount status."
+      }
+    },
+    {
+      "type": "douyin-live.feed",
+      "description": {
+        "zh": "弹幕桥中断了一段时间,或中断后恢复。",
+        "en": "The chat bridge has been down for a while, or came back after an outage."
+      }
+    },
+    {
+      "type": "douyin-live.warning",
+      "description": {
+        "zh": "平台警告类消息(若桥提供)。",
+        "en": "A platform warning when the bridge provides one."
+      },
+      "trigger": "flush"
+    },
+    {
+      "type": "douyin-live.audience",
+      "description": {
+        "zh": "进场、点赞、关注、免费礼物的计数与在线人数等读数的汇总,随下一批事件送达。",
+        "en": "Counts of entries, likes, follows and free gifts plus audience gauges, sent with the next batch."
+      },
+      "trigger": "piggyback",
+      "tags": ["snapshot"]
+    }
+  ],
+  "prompts": [
+    {
+      "key": "worlds.douyin-live.envPrompt",
+      "title": "抖音直播间 · 环境提示词",
+      "role": "envPrompt",
+      "content": "你接入了一个抖音直播间（只读接入弹幕，不向抖音发弹幕）\n观众看到的画面可能比现场晚几秒，注意延迟\n接入方式：{{douyin-live.ingestMode}}；直播间号：{{douyin-live.roomId | （未填）}}\n观众弹幕、礼物等事件会进你的上下文。请用桌宠正常说话直接回答观众，不要用写字板/公告板工具代替口头回复。\n若配置了 Overlay 视频排队，可用 `douyin_live_update_video_queue` 维护列表（加入、移除、调整顺序或清空），最多 {{douyin-live.videoQueueLimit}} 个\n当前排队：\n{{douyin-live.videoQueue | （空）}}\n"
+    }
+  ]
+}
