@@ -1,6 +1,6 @@
 {
   "name": "cortico-world-douyin-live",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "description": "Cortico World: read-only Douyin live room (room-id ingest like bilibili; optional local bridge), with coalescing, audience admission and a local OBS overlay",
   "license": "GPL-3.0-or-later",
@@ -17,7 +17,7 @@
     "cortico-world",
     "cortico",
     "douyin",
-    "live-streaming",
+    "streaming",
     "tiktok"
   ],
   "engines": {
@@ -33,8 +33,20 @@
     "webUiClient": "dist/webui.js",
     "describe": "describe.json",
     "tags": [
-      "live-streaming"
-    ]
+      "streaming",
+      "unofficial-api",
+      "experimental"
+    ],
+    "locales": {
+      "zh": {
+        "displayName": "抖音直播间",
+        "description": "只读接入抖音直播弹幕、礼物与人流；填房间号即可，可选本机 OBS Overlay。"
+      },
+      "en": {
+        "displayName": "Douyin Live",
+        "description": "Read-only Douyin live chat, gifts and audience signals by room id; optional local OBS overlay."
+      }
+    }
   },
   "files": [
     "src",

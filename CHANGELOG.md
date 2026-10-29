@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.6
+
+- 市场标签对齐官方词表：`streaming` + 自报 `unofficial-api` / `experimental`
+- 补充 `cortico.locales`（zh/en）
+- 更新 `describe.json`：去掉已移除的写字板工具声明
+
 ## 0.1.5
 
 - 未开播时等待并重解析；开播后内部 `roomId` 变更会自动重连

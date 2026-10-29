@@ -5,7 +5,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { resolveDouyinRoom } from './room-resolve.ts';
 import type { BridgeMessage, BridgePhase, BridgeStatus } from './types.ts';
 
-const PKG_VERSION = '0.1.5';
+const PKG_VERSION = '0.1.6';
 
 /** Douyin enter API: 2 = live, 4 = ended. */
 const DOUYIN_STATUS_LIVE = 2;

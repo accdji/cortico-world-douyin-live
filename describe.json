@@ -1,27 +1,6 @@
 {
   "tools": [
     {
-      "name": "douyin_live_set_announcement",
-      "description": "Rewrite the announcement board text on the local stream overlay. Does not send anything to Douyin.",
-      "parameters": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "text": {
-            "type": "string",
-            "description": "Announcement text, at most 200 characters. Empty clears the board.",
-            "maxLength": 200
-          }
-        },
-        "required": ["text"]
-      },
-      "tags": ["write"],
-      "summary": {
-        "zh": "改写直播画面叠加层上的公告板文字。",
-        "en": "Rewrites the announcement board text on the stream overlay."
-      }
-    },
-    {
       "name": "douyin_live_update_video_queue",
       "description": "Edit the local overlay video queue (max 20 items): add, remove, move or clear. Accepts Douyin video links or ids.",
       "parameters": {
